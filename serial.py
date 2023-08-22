@@ -18,19 +18,22 @@ class SerialGenerator:
     100
     """
 
-def __init__(self, start=100):
-    """Create a serial number generator that begins at start value"""
-    self.start = start
-    self.currentCount = start
+    def __init__(self, start=100):
+        """Create a serial number generator that begins at start value"""
+        self.start = start
+        self.next_number = start
 
-def generate(self):
-    """Returns count, then increments by 1"""
-    self.currentCount += 1
-    return self.currentCount - 1
+    def __repr__(self):
+        """Returns info about generated instance"""
+        return f'start ={self.start} and nextNumber= {self.next_number}'
 
-def reset(self):
-    """Resets count to inital value"""
-    self.currentCount = self.start.val()
-    print(self.start)
+    def generate(self):
+        """Returns count, then increments by 1"""
+        self.start += 1
+        return self.next_number - 1
 
-serial = SerialGenerator(start=100)
+    def reset(self):
+        """Resets count to inital value"""
+        self.currentCount = self.start
+
+
