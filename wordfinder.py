@@ -11,6 +11,7 @@ class WordFinder:
 
     # @classmethod
     def construct_wordslist_and_count(self, filepath):
+        """Reads a file of words returns a list of words and count of words"""
         words_list = set()
 
         with open(filepath, "r") as file:
@@ -22,3 +23,16 @@ class WordFinder:
         return (words_list, num_words)
 
 
+    def random(self):
+        """Returns a random word from the words list"""
+        removed = self.words_list.pop()
+        self.words_list.add(removed)
+        return removed
+
+class SpecialWordFinder(WordFinder):
+
+    def __init__(self, filepath):
+        super().__init__(filepath)
+
+        for word in self.words_list:
+            if word[0] == "#" or word ==
